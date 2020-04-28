@@ -1,0 +1,41 @@
+{
+  "private": false,
+  "scripts": {
+    "dev": "cross-env NODE_ENV='development' webpack-dev-server",
+    "build": "cross-env NODE_ENV='production' webpack --env.prod"
+  },
+  "dependencies": {
+    "vue": "^3.0.0-beta.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-typescript": "^7.9.0",
+    "@vue/compiler-sfc": "^3.0.0-beta.3",
+    "autoprefixer": "^9.7.6",
+    "axios": "^0.19.2",
+    "babel-loader": "^8.1.0",
+    "cross-env": "^7.0.2",
+    "css-loader": "^3.4.2",
+    "cssnano": "^4.1.10",
+    "eslint": "^6.8.0",
+    "eslint-plugin-vue": "v7.0.0-alpha.1",
+    "file-loader": "^6.0.0",
+    "less-loader": "^6.0.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "postcss": "^7.0.27",
+    "postcss-loader": "^3.0.0",
+    "postcss-px-to-viewport": "^1.1.1",
+    "style-loader": "^1.2.0",
+    "typescript": "^3.8.3",
+    "url-loader": "^4.0.0",
+    "vue-loader": "^16.0.0-alpha.3",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "name": "vue-next-blog",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "codeyhj",
+  "license": "MIT"
+}
