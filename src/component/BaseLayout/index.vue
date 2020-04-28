@@ -19,7 +19,7 @@ export default {
 };
 </script>
 
-<style lang = "less" scoped >
+<style lang = "less" >
 .BaseLayout {
   height: 100%;
   display: flex;

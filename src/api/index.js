@@ -28,18 +28,12 @@ instance.interceptors.request.use(
 
 instance.interceptors.response.use(
   (res) => {
-    const { code, message: msg, data } = res.data;
+    const { code, data } = res.data;
     if (code === "200") {
       return data;
     }
   },
   (err) => {
-    let msg = null;
-    if (err.message === "Request failed with status code 404") {
-      msg = "连接失败，请检查网络是否正常";
-    }
-    message.error(msg || err.message);
-
     return Promise.reject(err);
   }
 );

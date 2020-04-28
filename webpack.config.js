@@ -1,14 +1,16 @@
 const path = require("path");
 const { VueLoaderPlugin } = require("vue-loader");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlwebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = (env = {}) => ({
   mode: env.prod ? "production" : "development",
   devtool: env.prod ? "source-map" : "cheap-module-eval-source-map",
   entry: path.resolve(__dirname, "./src/main.js"),
   output: {
-    path: path.resolve(__dirname, "./dist"),
-    publicPath: "/dist/",
+    path: path.resolve(__dirname, "./blog"),
+    publicPath: "/",
   },
   resolve: {
     extensions: [".ts", ".vue", ".js"],
@@ -61,19 +63,7 @@ module.exports = (env = {}) => ({
               plugins: () => [
                 require("autoprefixer")(),
                 require("cssnano")(),
-                require("postcss-px-to-viewport")({
-                  unitToConvert: "px",
-                  viewportWidth: 750,
-                  unitPrecision: 3,
-                  propList: ["*"],
-                  viewportUnit: "vw",
-                  fontViewportUnit: "vw",
-                  selectorBlackList: [],
-                  minPixelValue: 1,
-                  mediaQuery: false,
-                  replace: true,
-                  exclude: /(\/|\\)(node_modules)(\/|\\)/,
-                }),
+                require("postcss-px2rem")({ remUnit: 75 }),
               ],
             },
           },
@@ -84,8 +74,12 @@ module.exports = (env = {}) => ({
   },
   plugins: [
     new VueLoaderPlugin(),
+    new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: "[name].css",
+    }),
+    new HtmlwebpackPlugin({
+      template: path.resolve(__dirname, "./index.html"),
     }),
   ],
   devServer: {
@@ -94,6 +88,7 @@ module.exports = (env = {}) => ({
     stats: "minimal",
     contentBase: __dirname,
     overlay: true,
+    historyApiFallback: true,
     proxy: {
       "/api": {
         target: "http://localhost:7001",

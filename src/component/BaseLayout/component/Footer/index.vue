@@ -1,6 +1,6 @@
 <template>
   <div class="footer">
-    <a href="http://www.miit.gov.cn/">粤ICP备17154839号-1 </a>
+    <a href="http://www.miit.gov.cn/">粤ICP备17154839号-1</a>
   </div>
 </template>
 
@@ -13,12 +13,10 @@ export default {
 
 <style lang="less" scoped>
 .footer {
-  font-size: 8px;
   width: 100%;
-  height: 20px;
-  line-height: 20px;
+  padding: 75px 0;
   text-align: center;
-  border-top:1px solid #000000;
+  border-top: 1px solid #000000;
   a {
     text-decoration: none;
     color: #19a1f8;

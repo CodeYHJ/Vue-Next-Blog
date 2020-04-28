@@ -1,13 +1,7 @@
-<template>
-  <div class="Card">
-    <h3 class="title">{{ cardData.title }}</h3>
-    <div class="dsc">{{ cardData.description }}</div>
-    <router-link :to="navPath" class="go">继续阅读全文</router-link>
-  </div>
-</template>
+
 
 <script>
-import { onMounted, computed } from "vue";
+import { computed } from "vue";
 
 export default {
   name: "Card",
@@ -19,31 +13,40 @@ export default {
       return `/dsc?slug=${props.cardData.slug}`;
     });
     return {
-        navPath
+      navPath
     };
   }
 };
 </script>
+<template>
+  <div class="Card">
+    <h3 class="title">{{ cardData.title }}</h3>
+    <div class="dsc">{{ cardData.description }}</div>
+    <router-link :to="navPath" class="go">继续阅读全文</router-link>
+  </div>
+</template>
 
-<style lang = "less" scoped >
+<style lang = "less"  >
 .Card {
   width: 80%;
-  height: 100px;
   border-bottom: 1px solid #000000;
-  padding: 10px 0;
+  padding: 75px 0;
   cursor: default;
-}
-.dsc {
-  font-size: 8px;
-  height: 40px;
-  padding: 10px 0;
-  overflow: hidden;
-}
-.go {
-  cursor: pointer;
-  color:rgb(85, 26, 139);
-  &:link{
-      color:rgb(85, 26, 139);
+  .dsc {
+    padding: 75px 0;
+    overflow: hidden;
+  }
+  .go {
+    font-size: 50px;
+    cursor: pointer;
+    color: rgb(85, 26, 139);
+    padding-left: 75px;
+    &:link {
+      color: rgb(85, 26, 139);
+    }
+  }
+  &:nth-last-child(1) {
+    border: none;
   }
 }
 </style>
