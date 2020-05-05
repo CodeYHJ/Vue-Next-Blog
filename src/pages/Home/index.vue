@@ -2,19 +2,18 @@
 import BaseLayout from "@com/BaseLayout/index.vue";
 import Card from "@com/Card/index.vue";
 import { getAllArticles } from "@api/artils.js";
-import { ref, watchEffect } from "vue";
+import { ref, onMounted } from "vue";
 export default {
   name: "Home",
   components: { BaseLayout, Card },
   setup() {
     let articleList = ref([]);
-    watchEffect(() => {
+    onMounted(() => {
       getAllArticles().then(res => {
         const { list } = res;
         articleList.value = list;
       });
     });
-
     return {
       article: articleList
     };
@@ -32,6 +31,7 @@ export default {
     </div>
   </BaseLayout>
 </template>
+
 <style lang="less">
 .Home {
   flex: 1;

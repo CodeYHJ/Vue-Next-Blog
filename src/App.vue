@@ -1,12 +1,9 @@
-<template>
-  <router-view> </router-view>
-</template>
 
 <script>
 import { ref } from "vue";
 
 export default {
-   name: "App",
+  name: "App",
   setup() {
     const count = ref(0);
     const inc = () => {
@@ -21,4 +18,7 @@ export default {
 };
 </script>
 
+<template>
+  <router-view />
+</template>
 

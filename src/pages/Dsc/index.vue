@@ -1,7 +1,7 @@
 
 
 <script>
-import { watchEffect, ref } from "vue";
+import { ref, onMounted } from "vue";
 
 import { useRoute } from "../../libaray/vue-router-next";
 
@@ -17,7 +17,7 @@ export default {
     let articleContent = ref();
     let articleTitle = ref();
 
-    watchEffect(() => {
+    onMounted(() => {
       getArticleDsc(slug).then(res => {
         const { article } = res;
         let { body_html, title } = article;
